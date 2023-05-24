@@ -12,7 +12,7 @@ load_dotenv()
 
 # API REST CONTROLLER
 from api.controller.controller_genders import api_genders
-#from api.controller.controller_routes import api_routes
+from api.controller.controller_documents import api_documents
 
 # SE HABILITA ACCESO PARA API DESDE EL ORIGEN *
 app = Flask(__name__)
@@ -35,7 +35,7 @@ mysql = MySQL(app)
 
 # SE AGREGAN CONTROLADORES DE LAS APIS REST
 api_genders(app, mysql)
-#api_routes(app, mysql)
+api_documents(app, mysql)
 
 
 # DESPLIEGUE SERVICIO PROPIO DE FLASK (SOLO PARA PRUEBAS). 
