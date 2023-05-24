@@ -96,7 +96,7 @@ def controller_generic(app, mysql, table, columns):
     # PUBLIC LOCAL METHOD
     return {
         "find_all": find_all,
-        "create_": create,
+        "create": create,
         "update": update,
         "find_by_id": find_by_id,
         "delete_by_id": delete_by_id,
