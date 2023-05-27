@@ -83,7 +83,7 @@ def dao_generic(app, mysql, table, columns):
                 cursor.close()
             # PRINT ERROR
             traceback.print_exc()
-            raise e
+            raise e   
 
     def update(data):
         cursor = None

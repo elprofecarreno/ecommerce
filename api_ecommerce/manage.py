@@ -13,6 +13,7 @@ load_dotenv()
 # API REST CONTROLLER
 from api.controller.controller_genders import api_genders
 from api.controller.controller_documents import api_documents
+from api.controller.controller_regiones_states import api_regiones_states
 
 # SE HABILITA ACCESO PARA API DESDE EL ORIGEN *
 app = Flask(__name__)
@@ -26,21 +27,21 @@ cors = CORS(app, resource ={
 })
 
 # CONNECTION DATABASE
-app.config['MYSQL_HOST'] = '127.0.0.1'
-app.config['MYSQL_PORT'] = 3306
+app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST')
+app.config['MYSQL_PORT'] = int(os.getenv('MYSQL_PORT'))
 app.config['MYSQL_USER'] = os.getenv('MYSQL_USER')
-app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_ROOT_PASSWORD')
-app.config['MYSQL_DB'] = os.getenv('MYSQL_DATABASE')
+app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD')
+app.config['MYSQL_DB'] = os.getenv('MYSQL_DB')
 mysql = MySQL(app)
 
 # SE AGREGAN CONTROLADORES DE LAS APIS REST
 api_genders(app, mysql)
 api_documents(app, mysql)
-
+api_regiones_states(app, mysql)
 
 # DESPLIEGUE SERVICIO PROPIO DE FLASK (SOLO PARA PRUEBAS). 
 # EN DONDE AL DEFINI 0.0.0.0 SE 
 # HABILITA EL USO DE LA IP LOCAL, IP DE RED, ETC. 
 # PARA EL PUERTO 9000
 if __name__ == '__main__' :
-    app.run(host='0.0.0.0', port=9000, debug=True)
+    app.run(host=os.getenv('APP_HOST'), port=int(os.getenv('APP_PORT')), debug=True)
