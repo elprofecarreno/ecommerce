@@ -2,6 +2,8 @@
 from flask import request
 # IMPORT COTROLLER GENERIC
 from api.controller.controller import controller_generic
+# IMPORT JSON SERIALIZERS
+import json
 
 TABLE = 'regiones_states'
 COLUMNS = ['id', 'name', 'latitude', 'longitude']

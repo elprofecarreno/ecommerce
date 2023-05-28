@@ -1,5 +1,10 @@
 # IMPORT TRACE ERROR 
 import traceback
+# IMPORT DECIMAL TYPE
+from decimal import Decimal
+# IMPORT DATETIME TYPE
+from datetime import datetime
+
 
 # LIBRARY FOR SIMPLE PRIMARY KEY
 
@@ -36,7 +41,7 @@ def dao_generic(app, mysql, table, columns):
             # CREATE ARRAY TO DICTIONARY
             for row in rows:
                 # CREATE DICTIONARY
-                item = dict(zip(columns, row))
+                item = serializers(dict(zip(columns, row)))
                 # ADD ITEM TO ARRAY
                 items.append(item)
             # CLOSE CURSOR
@@ -128,7 +133,7 @@ def dao_generic(app, mysql, table, columns):
                 return None
             else :
             # CREATE DICTIONARY            
-                item = dict(zip(columns, row))
+                item = serializers(dict(zip(columns, row)))
                 # CLOSE CURSOR
                 cursor.close()       
                 print('item:' , item)
@@ -162,6 +167,15 @@ def dao_generic(app, mysql, table, columns):
             # PRINT ERROR
             traceback.print_exc()
             raise e
+
+    def serializers(dictionary):        
+        for attribute in dictionary:
+            # SERIALIZER DECIMAL TYPE
+            if isinstance(dictionary[attribute], Decimal):
+                dictionary[attribute] = str(dictionary[attribute])
+            if isinstance(dictionary[attribute], datetime):
+                dictionary[attribute] = datetime.strptime(dictionary[attribute], "%d/%m/%Y %H:%M:%S")
+        return dictionary
 
     # PUBLIC LOCAL METHOD
     return {
