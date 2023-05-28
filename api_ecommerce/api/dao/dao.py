@@ -173,6 +173,7 @@ def dao_generic(app, mysql, table, columns):
             # SERIALIZER DECIMAL TYPE
             if isinstance(dictionary[attribute], Decimal):
                 dictionary[attribute] = str(dictionary[attribute])
+            # SERIALIZER datetime TYPE
             if isinstance(dictionary[attribute], datetime):
                 dictionary[attribute] = datetime.strptime(dictionary[attribute], "%d/%m/%Y %H:%M:%S")
         return dictionary
