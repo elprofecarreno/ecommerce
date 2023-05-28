@@ -17,6 +17,7 @@ from api.controller.controller_regiones_states import api_regiones_states
 from api.controller.controller_provinces_townships import api_provinces_townships
 from api.controller.controller_categories import api_categories
 from api.controller.controller_payments_types import api_payments_types
+from api.controller.controller_communes_towns import api_communes_towns
 
 # SE HABILITA ACCESO PARA API DESDE EL ORIGEN *
 app = Flask(__name__)
@@ -44,6 +45,7 @@ api_regiones_states(app, mysql)
 api_provinces_townships(app, mysql)
 api_categories(app, mysql)
 api_payments_types(app, mysql)
+api_communes_towns(app, mysql)
 
 # DESPLIEGUE SERVICIO PROPIO DE FLASK (SOLO PARA PRUEBAS). 
 # EN DONDE AL DEFINI 0.0.0.0 SE 
