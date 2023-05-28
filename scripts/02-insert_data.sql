@@ -10,6 +10,12 @@ INSERT INTO documents (name, description) VALUES ('ELECTRONIC INVOICE', 'Electro
 INSERT INTO documents (name, description) VALUES ('TICKET', 'Tributary Document');
 INSERT INTO documents (name, description) VALUES ('ELECTRONIC TICKET', 'Electronic Tributary Document');
 
+INSERT INTO payments_types (name, description) VALUES ('DEBIT CARD', 'Debit Card Payments Type');
+INSERT INTO payments_types (name, description) VALUES ('CREDIT CARD', 'Credit Card Payments Type');
+
+INSERT INTO categories (name, description) VALUES ('DAIRY', 'Dairy Categories Type');
+INSERT INTO categories (name, description) VALUES ('DRINK', 'Drink Categories Type');
+
 INSERT INTO regiones_states (name, latitude, longitude) VALUES ('Tarapacá',-20.164,-69.5541);
 INSERT INTO regiones_states (name, latitude, longitude) VALUES ('Antofagasta',-23.7503,-69.6);
 INSERT INTO regiones_states (name, latitude, longitude) VALUES ('Atacama',-27.5276,-70.2494);
