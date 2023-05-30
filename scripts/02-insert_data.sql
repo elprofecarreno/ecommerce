@@ -12,8 +12,13 @@ INSERT INTO documents (name, description) VALUES ('ELECTRONIC TICKET', 'Electron
 INSERT INTO payments_types (name, description) VALUES ('DEBIT CARD', 'Debit Card Payments Type');
 INSERT INTO payments_types (name, description) VALUES ('CREDIT CARD', 'Credit Card Payments Type');
 
-INSERT INTO categories (name, description) VALUES ('DAIRY', 'Dairy Categories Type');
-INSERT INTO categories (name, description) VALUES ('DRINK', 'Drink Categories Type');
+INSERT INTO categories (name, description) VALUES ('Flavored Milk', 'Flavored Milk');
+INSERT INTO categories (name, description) VALUES ('Alcohol Beer', 'Alcohol Beer');
+
+INSERT INTO products (name, description, sale_price, categories_id, image) VALUES ('Nestle Nesquik Chocolate Lowfat Milk', 'Ready to Drink, 14 fl oz', 1.48, 1, 'https://i5.walmartimages.com/asr/9f6fa617-d1e5-4485-b590-8fd135a80255.00ca746b20e55a7aaa5f91af028a8445.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF');
+INSERT INTO products (name, description, sale_price, categories_id, image) VALUES ('Nestle Nesquik Double Chocolate Lowfat Milk', 'Ready to Drink, 14 fl oz', 1.48, 1, 'https://i5.walmartimages.com/asr/4b8f1905-ac24-4e0f-b9c0-7c5ab8e64fd6.22e9717caa3f9550a732bd2a83ac55a9.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF');
+INSERT INTO products (name, description, sale_price, categories_id, image) VALUES ('Corona Extra Beer Mexican Lager', 'Beer 12 Pack, 12 fl oz Bottles, 4.6% ABV', 15.98, 2, 'https://i5.walmartimages.com/asr/f334b7d6-7dcb-42e9-b4b3-316f145b92cc.9e5ba763d73e301d068aaae24f77fcd5.jpeg?odnHeight=2000&odnWidth=2000&odnBg=FFFFFF');
+INSERT INTO products (name, description, sale_price, categories_id, image) VALUES ('Heineken Original Lager Beer', '12pk 12oz Btls, 5% Alcohol by Volume', 15.98, 2, 'https://i5.walmartimages.com/asr/f2a174eb-24a7-4d5f-9655-b8833c2a9875.00885ef73ced2f4d4302cc9a6463798c.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF');
 
 INSERT INTO regiones_states (name, latitude, longitude) VALUES ('Tarapacá',-20.164,-69.5541);
 INSERT INTO regiones_states (name, latitude, longitude) VALUES ('Antofagasta',-23.7503,-69.6);

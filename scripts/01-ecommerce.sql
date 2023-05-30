@@ -40,6 +40,7 @@ CREATE TABLE products (
   description VARCHAR(150),
   sale_price DECIMAL(10, 2), 
   categories_id INT,
+  image VARCHAR(300),
   FOREIGN KEY (categories_id) REFERENCES categories(id)
 );
 

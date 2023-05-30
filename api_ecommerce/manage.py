@@ -20,12 +20,14 @@ from api.controller.controller_payments_types import api_payments_types
 from api.controller.controller_communes_towns import api_communes_towns
 from api.controller.controller_products import api_products
 
-# SE HABILITA ACCESO PARA API DESDE EL ORIGEN *
+# CREATE FLASK APP 
 app = Flask(__name__)
+# CREATE CORS OBJECT
 CORS(app)
 
+# DEFINE POLICE CORS
 cors = CORS(app, resource ={
-    # RUTA O RUTAS HABILTADAS PARA EL ORIGEN *
+    # ENABLE PATH *
     r"/api/v1/*" : {
         "origins" : "*"
     }
@@ -39,7 +41,7 @@ app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD')
 app.config['MYSQL_DB'] = os.getenv('MYSQL_DB')
 mysql = MySQL(app)
 
-# SE AGREGAN CONTROLADORES DE LAS APIS REST
+# ADD APIS REST CONTROLLERS 
 api_genders(app, mysql)
 api_documents(app, mysql)
 api_regiones_states(app, mysql)
@@ -49,9 +51,6 @@ api_payments_types(app, mysql)
 api_communes_towns(app, mysql)
 api_products(app, mysql)
 
-# DESPLIEGUE SERVICIO PROPIO DE FLASK (SOLO PARA PRUEBAS). 
-# EN DONDE AL DEFINI 0.0.0.0 SE 
-# HABILITA EL USO DE LA IP LOCAL, IP DE RED, ETC. 
-# PARA EL PUERTO 9000
+# DEPLOY API REST (ONLY DEVELOPMENT AND TEST SERVER) 
 if __name__ == '__main__' :
     app.run(host=os.getenv('APP_HOST'), port=int(os.getenv('APP_PORT')), debug=True)
